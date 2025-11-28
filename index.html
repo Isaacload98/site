@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color: rgb(40,30,60);
+            color: white;
+        }
+        #titulo {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translate(-50%,0);
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+        }
+        .texto {
+            position: absolute;
+            top: var(--y,120px);
+            left: 50%;
+            transform: translate(-50%,0);
+            text-align: center;
+            width: 500px;
+            font-size: 30px;
+            color: white;
+        }
+        #foto_esquerda {
+            position: absolute;
+            width: 100px;
+            transform: translate(40px,220px);
+            height: auto;
+            border-radius: 70px;
+        }
+        #foto_direita {
+            position: absolute;
+            width: 100px;
+            right: 0px;
+            transform: translate(-40px,220px);
+            height: auto;
+            border-radius: 70px;
+        }
+        #botao {
+            position: absolute;
+            right:50px;
+            width: 150px;
+            height: 35px;
+            border-radius: 10px;
+            color: white;
+            background-color: rgb(20,15,30);
+        }
+        #botao2 {
+            position: absolute;
+            left:50px;
+            width: 150px;
+            height: 35px;
+            border-radius: 10px;
+            color: white;
+            background-color: rgb(20,15,30);
+        }
+    </style>
+    <div id="titulo">Empreendedorismo</div>
+    <div class="texto" style="--y: 120px;" id = "contexto"> teste.</div>
+    <div class="texto" style="--y: 350px;" id = "detalhes"> teste2.</div>
+
+    <button id = "botao">mudar topico</button>
+    <button id = "botao2">mudar cor</button>
+
+    <script src = "topicos.js"></script>
+    
+    <img id="foto_esquerda" src="Empreendedorismo.png" alt = "imagen">
+    <img id="foto_direita" src="O-que-e-empreendedorismo-1024x1024.png" alt = "imagen">
+</html>
+
