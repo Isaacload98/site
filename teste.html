@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz: Você é intolerante alimentar?</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #00c9a7, #00b4d8, #0077b6, #38b000);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: #ffffff;
+            max-width: 900px;
+            width: 95%;
+            border-radius: 16px;
+            padding: 20px 30px 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0077b6;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #38b000;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .quiz-intro {
+            background: #e0fbff;
+            border-left: 5px solid #00b4d8;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .question {
+            margin-bottom: 18px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            background: #f4fdf7;
+            border: 1px solid #cdeccd;
+        }
+
+        .question h3 {
+            margin: 0 0 10px;
+            color: #006400;
+            font-size: 1rem;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 4px;
+            cursor: pointer;
+        }
+
+        .options input[type="radio"] {
+            margin-right: 6px;
+        }
+
+        .btn-area {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background: linear-gradient(90deg, #00b4d8, #38b000);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        #resultado {
+            margin-top: 25px;
+            padding: 15px 18px;
+            border-radius: 10px;
+            display: none;
+            background: #e1faff;
+            border: 1px solid #00b4d8;
+        }
+
+        #resultado h2 {
+            margin-top: 0;
+            color: #0077b6;
+        }
+
+        .nivel {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .substituicoes ul {
+            margin-top: 8px;
+        }
+
+        .alerta {
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .erro {
+            color: #b00020;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px 15px 20px;
+            }
+
+            .question {
+                padding: 10px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Quiz da Intolerância Alimentar</h1>
+    <div class="subtitle">9º ano – Empreendedorismo e Saúde</div>
+
+    <div class="quiz-intro">
+        A intolerância alimentar acontece quando o corpo tem dificuldade em digerir certos alimentos,
+        causando desconfortos como dor de barriga, gases, inchaço ou mal-estar.  
+        Responda ao quiz e descubra se você apresenta sinais de intolerância – e receba
+        <strong>sugestões inteligentes de substituições alimentares</strong> no final! 🌱
+    </div>
+
+    <form id="quiz-form">
+        <!-- Pergunta 1 -->
+        <div class="question">
+            <h3>1. Depois de tomar leite ou comer queijo, sorvete ou iogurte, você sente dor de barriga ou fica enjoado(a)?</h3>
+            <div class="options">
+                <label><input type="radio" name="q1" value="0"> Nunca</label>
+                <label><input type="radio" name="q1" value="1"> Às vezes</label>
+                <label><input type="radio" name="q1" value="2"> Muitas vezes</label>
+            </div>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="question">
+            <h3>2. Depois de comer pão, bolo, pizza ou macarrão, sua barriga fica muito estufada ou com gases?</h3>
+            <div class="options">
+                <label><input type="radio" name="q2" value="0"> Nunca</label>
+                <label><input type="radio" name="q2" value="1"> Às vezes</label>
+                <label><input type="radio" name="q2" value="2"> Muitas vezes</label>
+            </div>
+        </div>
+
+        <!-- Pergunta 3 -->
+        <div class="question">
+            <h3>3. Você tem diarreia ou intestino preso com frequência, sem saber explicar o motivo?</h3>
+            <div class="options">
+                <label><input type="radio" name="q3" value="0"> Quase nunca</label>
+                <label><input type="radio" name="q3" value="1"> De vez em quando</label>
+                <label><input type="radio" name="q3" value="2"> Muitas vezes</label>
+            </div>
+        </div>
+
+        <!-- Pergunta 4 -->
+        <div class="question">
+            <h3>4. Já percebeu que sente dor de cabeça, cansaço ou mau humor depois de comer certos alimentos específicos?</h3>
+            <div class="options">
+                <label><input type="radio" name="q4" value="0"> Não, nunca reparei isso</label>
+                <label><input type="radio" name="q4" value="1"> Às vezes</label>
+                <label><input type="radio" name="q4" value="2"> Sim, várias vezes</label>
+            </div>
+        </div>
+
+        <!-- Pergunta 5 -->
+        <div class="question">
+            <h3>5. Sua pele já ficou com manchas, coceira ou vermelhidão depois de comer algo diferente?</h3>
+            <div class="options">
+                <label><input type="radio" name="q5" value="0"> Não</label>
+                <label><input type="radio" name="q5" value="1"> Às vezes</label>
+                <label><input type="radio" name="q5" value="2"> Sim, acontece bastante</label>
+            </div>
+        </div>
+
+        <!-- Pergunta 6 -->
+        <div class="question">
+            <h3>6. Você percebe que sempre que come o mesmo alimento (por exemplo, milk-shake, macarrão, chocolate), sente o mesmo tipo de desconforto?</h3>
+            <div class="options">
+                <label><input type="radio" name="q6" value="0"> Não percebo isso</label>
+                <label><input type="radio" name="q6" value="1"> Às vezes acontece</label>
+                <label><input type="radio" name="q6" value="2"> Sim, quase sempre</label>
+            </div>
+        </div>
+
+        <!-- Pergunta 7 -->
+        <div class="question">
+            <h3>7. Alguém da sua família já foi diagnosticado com intolerância alimentar (como intolerância à lactose ou ao glúten)?</h3>
+            <div class="options">
+                <label><input type="radio" name="q7" value="0"> Não</label>
+                <label><input type="radio" name="q7" value="1"> Não sei</label>
+                <label><input type="radio" name="q7" value="2"> Sim</label>
+            </div>
+        </div>
+
+        <!-- Pergunta 8 -->
+        <div class="question">
+            <h3>8. Você já precisou faltar à escola ou parar de fazer alguma atividade por causa de dor de barriga depois de comer?</h3>
+            <div class="options">
+                <label><input type="radio" name="q8" value="0"> Nunca</label>
+                <label><input type="radio" name="q8" value="1"> Uma ou duas vezes</label>
+                <label><input type="radio" name="q8" value="2"> Várias vezes</label>
+            </div>
+        </div>
+
+        <div class="btn-area">
+            <button type="button" onclick="calcularResultado()">Ver meu resultado 🎯</button>
+        </div>
+        <div id="erro" class="erro"></div>
+    </form>
+
+    <div id="resultado">
+        <h2>Seu resultado</h2>
+        <div class="nivel" id="nivel-texto"></div>
+        <div id="explicacao"></div>
+
+        <div class="substituicoes">
+            <h3>Sugestões inteligentes de substituições alimentares 🍽️</h3>
+            <div id="lista-substituicoes"></div>
+        </div>
+
+        <div class="alerta">
+            ⚠️ Este quiz é apenas uma ferramenta educativa e não substitui uma avaliação de médico ou nutricionista.
+            Se você sente muitos desconfortos, procure um profissional de saúde.
+        </div>
+    </div>
+</div>
+
+<script>
+    function calcularResultado() {
+        const totalPerguntas = 8;
+        let pontuacao = 0;
+        let respostas = {};
+        let erroDiv = document.getElementById("erro");
+        erroDiv.textContent = "";
+
+        for (let i = 1; i <= totalPerguntas; i++) {
+            const selecionada = document.querySelector('input[name="q' + i + '"]:checked');
+            if (!selecionada) {
+                erroDiv.textContent = "Por favor, responda todas as perguntas antes de ver o resultado.";
+                document.getElementById("resultado").style.display = "none";
+                return;
+            }
+            const valor = parseInt(selecionada.value);
+            respostas["q" + i] = valor;
+            pontuacao += valor;
+        }
+
+        const resultadoDiv = document.getElementById("resultado");
+        const nivelTexto = document.getElementById("nivel-texto");
+        const explicacao = document.getElementById("explicacao");
+        const listaSubs = document.getElementById("lista-substituicoes");
+
+        let nivel = "";
+        let textoExplicacao = "";
+
+        if (pontuacao <= 5) {
+            nivel = "Poucos sinais de intolerância alimentar.";
+            textoExplicacao = "Você marcou poucos sintomas relacionados à intolerância alimentar. " +
+                "Seu corpo não parece dar muitos sinais de desconforto ligados à alimentação, " +
+                "mas continuar observando como você se sente após comer é sempre uma boa ideia.";
+        } else if (pontuacao <= 11) {
+            nivel = "Fique atento(a)! Seu corpo pode estar dando alguns sinais.";
+            textoExplicacao = "Você marcou alguns sintomas que podem estar relacionados à intolerância alimentar. " +
+                "Vale a pena prestar atenção: anote quais alimentos você come quando sente desconforto e, " +
+                "se os sintomas continuarem, converse com um profissional de saúde.";
+        } else {
+            nivel = "Muitos sinais de possível intolerância alimentar.";
+            textoExplicacao = "Você marcou vários sintomas que podem estar ligados à intolerância alimentar. " +
+                "Isso não é um diagnóstico, mas é um alerta importante para você levar a sério os sinais do seu corpo " +
+                "e procurar um médico ou nutricionista para uma avaliação mais detalhada.";
+        }
+
+        nivelTexto.textContent = nivel;
+        explicacao.textContent = textoExplicacao;
+
+        // Montar sugestões de substituições
+        let substituicoesHtml = "<ul>";
+
+        // Lactose (Pergunta 1)
+        if (respostas.q1 >= 1) {
+            substituicoesHtml += "<li><strong>Possível sensibilidade a laticínios:</strong> experimente " +
+                "leite sem lactose, bebidas vegetais (soja, aveia, amêndoas), queijos e iogurtes sem lactose.</li>";
+        }
+
+        // Glúten / massas (Pergunta 2)
+        if (respostas.q2 >= 1) {
+            substituicoesHtml += "<li><strong>Pães e massas te fazem mal?</strong> teste opções sem glúten, " +
+                "como pão de arroz, bolo de fubá, macarrão sem glúten, além de alimentos como arroz, batata e mandioca.</li>";
+        }
+
+        // Sintomas gerais (pontuação média/alta)
+        if (pontuacao >= 6) {
+            substituicoesHtml += "<li><strong>Dica geral:</strong> prefira alimentos mais naturais (frutas, legumes, " +
+                "comida feita em casa) e evite muitos produtos industrializados, refrigerantes e frituras.</li>";
+        }
+
+        // Se não disparou nenhuma condição mais específica
+        if (substituicoesHtml === "<ul>") {
+            substituicoesHtml += "<li>Por enquanto, continue observando como seu corpo reage aos alimentos. " +
+                "Manter uma alimentação variada e equilibrada já é um ótimo começo! 🥦</li>";
+        }
+
+        substituicoesHtml += "</ul>";
+        listaSubs.innerHTML = substituicoesHtml;
+
+        resultadoDiv.style.display = "block";
+        resultadoDiv.scrollIntoView({ behavior: "smooth" });
+    }
+</script>
+</body>
+</html>
