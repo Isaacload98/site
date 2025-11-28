@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color: rgb(40,30,60);
+            color: white;
+        }
+        #titulo {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translate(-50%,0);
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+        }
+        .texto {
+            position: absolute;
+            top: var(--y,120px);
+            left: 50%;
+            transform: translate(-50%,0);
+            text-align: center;
+            width: 500px;
+            font-size: 30px;
+            color: white;
+        }
+        #foto_esquerda {
+            position: absolute;
+            width: 100px;
+            transform: translate(40px,160px);
+            height: auto;
+            border-radius: 70px;
+        }
+        #foto_direita {
+            position: absolute;
+            width: 100px;
+            right: 0px;
+            transform: translate(-40px,160px);
+            height: auto;
+            border-radius: 70px;
+        }
+        #botao2 {
+            top: 10px;
+            position: absolute;
+            left:50%;
+            transform: translate(-50%,0px);
+            width: 150px;
+            height: 35px;
+            border-radius: 10px;
+            color: white;
+            background-color: rgb(20,15,30);
+            color:black;
+            background-color:rgb(0,255,170);
+            font-weight: bold;
+        }
+        #botaoQuiz {
+            top: 1100px;
+            position: absolute;
+            left:50%;
+            transform: translate(-50%,0px);
+            width: 180px;
+            height: 70px;
+            border-radius: 10px;
+            color: white;
+            background-color: rgb(20,15,30);
+            color:black;
+            background-color:rgb(0,255,170);
+            font-weight: bold;
+        }
+        #creditos {
+            color:green;
+        }
+    </style>
+    <div id="titulo">DESCUBRA SE VOCÊ POSSUI INTOLERÂNCIA ALIMENTAR</div>
+    <div class="texto" style="--y: 320px;" id = "contexto"> A intolerância alimentar ocorre quando o organismo tem dificuldade em digerir certos alimentos, causando desconfortos como dor abdominal, inchaço, náuseas, gases ou até alterações na pele. Diferente da alergia, que envolve o sistema imunológico, a intolerância está ligada principalmente ao processo de digestão — e muitas vezes passa despercebida no dia a dia..</div>
+    <div class="texto" style="--y: 700px;" id = "detalhes"> Você sente desconfortos depois de comer determinados alimentos e nunca descobriu o motivo? Talvez seu corpo esteja tentando te avisar! 👉 Faça agora nosso quiz interativo e descubra se você pode ter algum tipo de intolerância alimentar..</div>
+    <div class="texto" style="--y: 1300px;" id = "3"> É rápido, informativo e pode ser o primeiro passo para entender melhor sua saúde!</div>
+    <div class="texto" style="--y: 1450px;" id = "4"> Ao final do quiz, descubra se você possui alguma intolerância! Caso você possua, receba ainda, sugestões personalizadas de substituições alimentares para que o seu organismo e o seu corpo se sintam melhores no dia a dia! VIVA SAUDÁVEL!</div>
+    <div class="texto" style="--y: 1800px;" id = "creditos"> Nós somos os alunos no 9º ano do ensino fundamental do Colégio Equipatos: Isaac, Amanda, Cauã e Vitória. (site desenvolvido pelo aluno Isaac César) </div>
+
+    <button id = "botao2">Mudar Cor</button>
+    <button id = "botaoQuiz">DESCUBRA SUA INTOLERÂNCIA</button>
+
+    <script src = "topicos.js"></script>
+</html>
+
